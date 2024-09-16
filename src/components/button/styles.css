@@ -1,0 +1,36 @@
+.button {
+    padding: 16px 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    max-width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.button-default {
+    background-color: #046ee5;
+}
+
+.button-google {
+    background-color: #DB4437;
+}
+
+.button-logout {
+    font-size: 16px;
+    font-weight: bold;
+    width: inherit;
+    padding: 0.5rem;
+    background-color: inherit;
+}
+
+.button-logout:hover {
+    background-color: #a8a8a8;
+    border-radius: 5px;
+}

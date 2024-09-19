@@ -3,11 +3,13 @@ import Home from './pages/home';
 import Sobre from './pages/about';
 import Login from './pages/signin';
 import Signup from './pages/signup';
+import { auth } from './libs/firebase';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
+  console.log(auth);
 
   useEffect(() => {
     const authState = JSON.parse(localStorage.getItem('is_authenticated'));

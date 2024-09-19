@@ -15,7 +15,7 @@ function App() {
   }, []);
 
   if (isAuthenticated === null) {
-    isAuthenticated = false;
+    setIsAuthenticated(false);
   }
 
   return (

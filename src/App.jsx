@@ -15,7 +15,7 @@ function App() {
   }, []);
 
   if (isAuthenticated === null) {
-    return <div>Loading...</div>;
+    isAuthenticated = false;
   }
 
   return (

@@ -2,7 +2,7 @@
 [build]
   command = "npm run build"
   functions = "netlify/functions"
-  publish = "dist"
+  publish = "build"
 
 # Redirecionamento de todas as rotas para /index.html
 [[redirects]]

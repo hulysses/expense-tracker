@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { db, auth} from '../../libs/firebase';
+// import { auth } from '../../libs/firebase';
 import './styles.css'
 import NavBar from '../../components/navBar';
 

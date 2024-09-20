@@ -5,13 +5,15 @@ import Swal from 'sweetalert2';
 import Logo from '../../assets/logo/logo.svg';
 import Input from "../../components/input";
 import Button from '../../components/button';
-import './styles.css'
+import './styles.css';
+import { auth } from '../../libs/firebase';
 
 const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-
+  console.log(auth);
+  
   const handleLogin = async (e) => {
     e.preventDefault();
 

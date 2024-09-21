@@ -1,7 +1,12 @@
 import './styles.css'
 import NavBar from '../../components/navBar';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
+    const navigate = useNavigate();
+    const handleGetStarted = () => {
+        navigate('/dashboard');
+    };
     return (
         <div>
             <NavBar />
@@ -25,7 +30,7 @@ export default function Home() {
                     </div>
                 </section>
                 <footer className="home-footer">
-                    <button className="get-started-button">Comece agora</button>
+                    <button className="get-started-button" onClick={handleGetStarted}>Comece agora</button>
                 </footer>
             </div>
         </div>

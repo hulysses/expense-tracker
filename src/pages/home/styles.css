@@ -27,7 +27,7 @@
 
 .feature {
     max-width: 300px;
-    background-color: #ebebeb;
+    background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -35,7 +35,7 @@
 
 .feature h2 {
     font-size: 24px;
-    color: #00008b;
+    color: rgb(0, 0, 139);
     margin-bottom: 10px;
 }
 

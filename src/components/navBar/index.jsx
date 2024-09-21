@@ -9,6 +9,7 @@ export default function NavBar () {
                 <h1 className='h1'>Finantrack</h1>
                 <ul className='list'>
                     <CustomLink to='/home'>Home</CustomLink>
+                    <CustomLink to='/dashboard'>Dashboard</CustomLink>
                     <CustomLink to='/about'>Sobre</CustomLink>
                     <Logout />
                 </ul>

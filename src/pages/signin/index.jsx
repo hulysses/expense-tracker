@@ -39,7 +39,6 @@ const Login = ({ setIsAuthenticated }) => {
         willClose: () => {
           setIsAuthenticated(true);
           localStorage.setItem('is_authenticated', JSON.stringify(true));
-          console.log(auth);
 
           Swal.fire({
             icon: 'success',
@@ -85,7 +84,6 @@ const Login = ({ setIsAuthenticated }) => {
           });
 
           navigate('/home');
-          console.log(auth);
         },
       });
     } catch (error) {

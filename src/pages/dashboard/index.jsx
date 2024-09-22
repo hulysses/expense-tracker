@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import './styles.css'
 import NavBar from '../../components/navBar';
-import { Item } from '../../entities/items';  // Supondo que Item é uma classe ou estrutura definida
 import { Category } from '../../entities/categories';
 import { getCurrentMonth, filterListByMonth } from '../../helpers/index';
 import TableArea from '../../components/tableArea';

@@ -6,10 +6,10 @@ export default function TableArea({ items, categories }) {
         <table className="table">
             <thead>
                 <tr>
-                    <th className='th' width={100}>Data</th>
-                    <th className='th' width={130}>Categoria</th>
+                    <th className='th' width={120}>Data</th>
+                    <th className='th' width={170}>Categoria</th>
                     <th className='th'>Título</th>
-                    <th className='th' width={150}>Valor</th>
+                    <th className='th' width={100}>Valor</th>
                 </tr>
             </thead>
             <tbody>

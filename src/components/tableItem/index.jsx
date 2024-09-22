@@ -15,7 +15,7 @@ export default function TableItem({ item, categories }) {
                 </div>
             </td>
             <td className='td'>{item.title}</td>
-            <td className='td' style={{ color: valueColor }}>
+            <td className='td rigth' style={{ color: valueColor }}>
                 R$ {item.value.toFixed(2)}
             </td>
         </tr>

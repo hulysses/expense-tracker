@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import './styles.css'
 import NavBar from '../../components/navBar';
-import { Item } from '../../entities/items';
+import { Item } from '../../entities/items';  // Supondo que Item é uma classe ou estrutura definida
 import { Category } from '../../entities/categories';
 import { getCurrentMonth, filterListByMonth } from '../../helpers/index';
 import TableArea from '../../components/tableArea';
 import InforArea from '../../components/inforArea';
+import InputArea from '../../components/inputArea';
 
 export default function Dashboard() {
     const [list, setList] = useState([]);
@@ -16,30 +17,39 @@ export default function Dashboard() {
     const [expense, setExpense] = useState(0);
 
     useEffect(() => {
+        const storedList = localStorage.getItem('list');
+        const storedCategories = localStorage.getItem('categories');
+
+        if (storedList) {
+            const parsedList = JSON.parse(storedList);
+            const listWithDates = parsedList.map(item => ({
+                ...item,
+                date: new Date(item.date)
+            }));
+
+            setList(listWithDates);
+        }
+
+        if (storedCategories) {
+            setCategories(JSON.parse(storedCategories));
+        }
+    }, []);
+
+    useEffect(() => {
+        if (list.length > 0) {
+            localStorage.setItem('list', JSON.stringify(list));
+        }
+    }, [list]);
+
+    useEffect(() => {
+        if (categories.length > 0) {
+            localStorage.setItem('categories', JSON.stringify(categories));
+        }
+    }, [categories]);
+
+    useEffect(() => {
         setFilteredList(filterListByMonth(list, currentMonth));
     }, [list, currentMonth]);
-
-    useEffect(() => {
-        const itemList = [
-            new Item(1, new Date(2024, 8, 21), 'Alimentação', 'Groceries', 105.50),
-            new Item(2, new Date(2024, 8, 22), 'Transporte', 'Bus fare', 2.75)
-        ];
-
-        setList(itemList);
-    }, []);
-
-    useEffect(() => {
-        const categoryList = [
-            new Category('Alimentação', 'red', true),
-            new Category('Transporte', 'blue', true),
-            new Category('Utilidades', 'brown', true),
-            new Category('Saúde', '#ff4500', true),
-            new Category('Salário', 'green', false),
-            new Category('Outros', 'purple', true)
-        ];
-
-        setCategories(categoryList);
-    }, []);
 
     useEffect(() => {
         let incomeCount = 0;
@@ -59,9 +69,27 @@ export default function Dashboard() {
         setExpense(expenseCount);
     }, [filteredList, categories]);
 
+    useEffect(() => {
+        const categoryList = [
+            new Category('Alimentação', 'red', true),
+            new Category('Transporte', 'blue', true),
+            new Category('Utilidades', 'brown', true),
+            new Category('Saúde', '#ff4500', true),
+            new Category('Salário', 'green', false),
+            new Category('Outros', 'purple', true)
+        ];
+
+        setCategories(categoryList);
+    }, []);
+
+    const handleAddItem = (item) => {
+        const newList = [...list, item];
+        setList(newList);
+    };
+
     const handleMonthChange = (newMonth) => {
         setCurrentMonth(newMonth);
-    }
+    };
 
     return (
         <div>
@@ -73,8 +101,9 @@ export default function Dashboard() {
                     income={income}
                     expense={expense}
                 />
+                <InputArea categories={categories} onAdd={handleAddItem} />
                 <TableArea items={filteredList} categories={categories} />
-            </div>
+            </div>4
         </div>
     );
 }

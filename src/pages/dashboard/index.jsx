@@ -47,7 +47,7 @@ export default function Dashboard() {
 
         for (let i in filteredList) {
             const category = categories.find(cat => cat.title === filteredList[i].category);
-            
+
             if (category && category.expense) {
                 expenseCount += filteredList[i].value;
             } else if (category) {
@@ -57,7 +57,7 @@ export default function Dashboard() {
 
         setIncome(incomeCount);
         setExpense(expenseCount);
-    }, [filteredList]);
+    }, [filteredList, categories]);
 
     const handleMonthChange = (newMonth) => {
         setCurrentMonth(newMonth);
